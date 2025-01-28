@@ -1,0 +1,43 @@
+.tetris-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #282c34;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.tetris-board {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(20, 30px);
+  gap: 1px;
+  background-color: #333;
+}
+
+.tetris-row {
+  display: contents;
+}
+
+.tetris-cell {
+  width: 30px;
+  height: 30px;
+  background-color: #444;
+}
+
+.tetris-cell.filled {
+  background-color: #61dafb;
+}
+
+.score,
+.level,
+.game-over {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+
+.game-over {
+  color: red;
+}

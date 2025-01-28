@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import TetrisGame from './components/TetrisGame';
 
 function App() {
+  const [gameStarted, setGameStarted] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {gameStarted ? (
+        <TetrisGame />
+      ) : (
+        <header className="App-header">
+          <img
+            src={`${process.env.PUBLIC_URL}/logo192.png`}
+            className="App-logo"
+            alt="logo"
+          />
+          <button onClick={() => setGameStarted(true)} className="start-button">
+            Start Game
+          </button>
+        </header>
+      )}
     </div>
   );
 }
