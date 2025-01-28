@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react';
 import './App.css';
 import TetrisGame from './components/TetrisGame';
 
@@ -11,11 +12,7 @@ function App() {
         <TetrisGame />
       ) : (
         <header className="App-header">
-          <img
-            src={`${process.env.PUBLIC_URL}/logo192.png`}
-            className="App-logo"
-            alt="logo"
-          />
+          <img src={`/logo192.png`} className="App-logo" alt="logo" />
           <button onClick={() => setGameStarted(true)} className="start-button">
             Start Game
           </button>
