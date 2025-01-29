@@ -11,7 +11,7 @@
 
 ### テトリスの基本ルール
 
-- 7 種類のテトリミノ (I, O, T, S, Z, J, L) をランダムに生成
+- 7 種類のテトロミノ (I, O, T, S, Z, J, L) をランダムに生成
 - 回転、左右移動、ソフトドロップ、ハードドロップに対応
 - ブロックが枠上部に達するとゲームオーバー
 - 水平に 1 ライン揃ったら消去し、スコアを加算
@@ -33,10 +33,49 @@
 ## ディレクトリ構成
 
 - `src/`: ソースコード
-  - `components/`: React コンポーネント
+  - `components/`: Reactコンポーネント
+    - `TetrisBoard.tsx`: ゲームボードの表示
+    - `TetrisGame.tsx`: ゲームのメインコンポーネント
   - `core/`: テトリスのコアロジック
-  - `utils/`: ユーティリティ関数
-  - `types/`: TypeScript の型定義
+    - `tetrisLogic.ts`: メインのゲームロジックとエクスポート
+    - `collision.ts`: 衝突判定のロジック
+    - `movement.ts`: ピースの移動と回転のロジック
+    - `lines.ts`: ライン消去のロジック
+    - `utils.ts`: ユーティリティ関数
+  - `constants/`: 定数定義
+    - `tetromino.ts`: テトロミノの形状と色の定義
+  - `types/`: TypeScript型定義
+    - `tetris.ts`: ゲーム関連の型定義
   - `styles/`: スタイルシート
-- `public/`: 公開用ファイル
+    - `TetrisGame.css`: ゲーム画面のスタイル
 - `tests/`: テストコード
+  - `tetrisLogic.test.ts`: コアロジックのテスト
+
+## コードの責務分離
+
+### コアロジック
+- `tetrisLogic.ts`: 他のモジュールの機能をまとめて提供
+- `collision.ts`: 衝突判定と固定化の処理
+- `movement.ts`: ピースの移動と回転の処理
+- `lines.ts`: ライン消去とスコア計算
+- `utils.ts`: 汎用的な関数
+
+### 定数と型
+- `tetromino.ts`: テトロミノに関する定数
+- `tetris.ts`: ゲーム全体で使用する型定義
+
+### UI
+- `TetrisGame.tsx`: ゲームの状態管理とイベントハンドリング
+- `TetrisBoard.tsx`: ゲームボードの描画
+- `TetrisGame.css`: UIのスタイリング
+
+## テスト戦略
+
+- ユニットテスト
+  - コアロジックの各機能をテスト
+  - 境界値のテスト
+  - エッジケースの確認
+
+- 統合テスト
+  - コンポーネント間の連携
+  - ゲームの状態遷移
