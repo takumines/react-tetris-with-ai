@@ -15,7 +15,7 @@
 
 1. リポジトリをクローンします。
    ```bash
-   git clone [リポジトリのURL]
+   git clone git@github.com:takumines/react-tetris-with-ai.git
    ```
 
 2. 必要なパッケージをインストールします。
