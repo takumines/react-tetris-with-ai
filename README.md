@@ -6,11 +6,10 @@
 
 - **プログラミング言語**: TypeScript 5.7
 - **ライブラリ**:
-  - React 19
-  - Vite
-  - Vitest
-  - React Router
-  - Tailwind CSS
+  - React 19.0.0
+  - Vite 6.0.11
+  - Vitest 3.0.4
+  - React Router 7.1.3
 
 ## 環境構築方法
 
