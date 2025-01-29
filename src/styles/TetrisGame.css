@@ -2,42 +2,117 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  padding: 20px;
   background-color: #282c34;
+  min-height: 100vh;
   color: white;
-  font-family: 'Arial', sans-serif;
+  outline: none;
+  position: relative;
 }
 
 .tetris-board {
-  display: grid;
-  grid-template-columns: repeat(10, 30px);
-  grid-template-rows: repeat(20, 30px);
-  gap: 1px;
-  background-color: #333;
+  border: 2px solid #666;
+  background-color: #1a1a1a;
+  padding: 2px;
+  margin: 20px 0;
 }
 
 .tetris-row {
-  display: contents;
+  display: flex;
 }
 
 .tetris-cell {
   width: 30px;
   height: 30px;
-  background-color: #444;
+  border: 1px solid #333;
+  box-sizing: border-box;
 }
 
 .tetris-cell.filled {
-  background-color: #61dafb;
+  border-color: #444;
+}
+
+.game-info {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
 }
 
 .score,
-.level,
-.game-over {
-  margin-top: 20px;
-  font-size: 1.5em;
+.level {
+  margin: 10px 0;
+  font-weight: bold;
 }
 
-.game-over {
-  color: red;
+.controls {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 0.9em;
+}
+
+.controls ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.controls li {
+  margin: 5px 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.message {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.final-score {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #61dafb;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+  color: #282c34;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #4fa8d1;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.tetris-cell.filled {
+  animation: flash 2s infinite;
 }

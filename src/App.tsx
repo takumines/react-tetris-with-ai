@@ -1,25 +1,18 @@
-import { useState } from 'react';
 import React from 'react';
-import './App.css';
 import TetrisGame from './components/TetrisGame';
+import './App.css';
 
-function App() {
-  const [gameStarted, setGameStarted] = useState(false);
-
+const App: React.FC = () => {
   return (
     <div className="App">
-      {gameStarted ? (
+      <header className="App-header">
+        <h1>React Tetris</h1>
+      </header>
+      <main>
         <TetrisGame />
-      ) : (
-        <header className="App-header">
-          <img src={`/logo192.png`} className="App-logo" alt="logo" />
-          <button onClick={() => setGameStarted(true)} className="start-button">
-            Start Game
-          </button>
-        </header>
-      )}
+      </main>
     </div>
   );
-}
+};
 
 export default App;
