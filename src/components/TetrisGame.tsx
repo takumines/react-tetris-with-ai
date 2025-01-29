@@ -41,15 +41,19 @@ const TetrisGame: React.FC = () => {
       let newState = { ...gameState };
       switch (event.key) {
         case 'ArrowLeft':
+          event.preventDefault(); // 左キーによるスクロールを防止
           newState = movePiece(newState, 'left');
           break;
         case 'ArrowRight':
+          event.preventDefault(); // 右キーによるスクロールを防止
           newState = movePiece(newState, 'right');
           break;
         case 'ArrowDown':
+          event.preventDefault(); // 下キーによるスクロールを防止
           newState = movePiece(newState, 'down');
           break;
         case 'ArrowUp':
+          event.preventDefault(); // 上キーによるスクロールを防止
           newState = rotatePiece(newState);
           break;
         case ' ':
